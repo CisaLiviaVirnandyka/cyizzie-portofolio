@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact • Porto Lucu</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body data-page="contact">
+  <!-- background blobs -->
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <div class="logo"><span>🎀</span></div>
+        <div>
+          <div style="font-size:14px; opacity:.85;">Cyizzie — Personal Website</div>
+          <div style="font-size:12px; color:var(--muted); font-weight:800;">Welcome to my porto</div>
+        </div>
+      </a>
+      <nav class="links">
+        <a class="chip" data-nav="home" href="index.html">Home</a>
+        <a class="chip" data-nav="projects" href="projects.html">Projects</a>
+        <a class="chip" data-nav="about" href="about.html">About</a>
+        <a class="chip primary" data-nav="contact" href="contact.html">Contact ✨</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="wrap">
+    <div class="card">
+      <h1>Contact 💌</h1>
+      <p class="subtitle">
+        Kalau mau ngobrol, atau sekadar say hi,
+        langsung kirim pesan lewat form di bawah ini ✨
+      </p>
+    </div>
+
+    <div class="section-title">
+      <h2>Message</h2>
+      <div class="hint">let’s talk ☁️</div>
+    </div>
+
+    <div class="grid" style="grid-template-columns: 1.1fr .9fr;">
+      <!-- FORM -->
+      <div class="card">
+        <form id="contactForm" action="https://formspree.io/f/mojvbewl" method="POST">
+          <div style="display:grid; gap:10px">
+            <input class="input" name="name" placeholder="Nama kamu" required />
+            <input class="input" name="email" type="email" placeholder="Email kamu" required />
+            <textarea class="input" name="message" placeholder="Pesan (singkat aja ya)" required></textarea>
+
+            <input type="hidden" name="_subject" value="Pesan baru dari Portfolio Cyizzie" />
+
+            <button class="btn primary" type="submit">Send ✨</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- LINKS -->
+      <div class="card">
+        <div style="font-weight:950; font-size:16px;">Quick Links 🔗</div>
+
+        <div style="display:grid; gap:10px; margin-top:12px">
+          <a class="btn ghost"
+             href="https://github.com/CisaLiviaVirnandyka"
+             target="_blank" rel="noopener">
+            GitHub 🐙
+          </a>
+
+          <a class="btn ghost"
+             href="https://www.instagram.com/cisalvrk/"
+             target="_blank" rel="noopener">
+            Instagram 📸
+          </a>
+
+          <a class="btn ghost"
+             href="https://www.linkedin.com/in/cisa-livia-virnandyka-23a530288/"
+             target="_blank" rel="noopener">
+            LinkedIn 💼
+          </a>
+
+          <button class="btn ghost" id="copyEmail" data-email="cyizziee@gmail.com" type="button">
+            Copy Email 📩
+          </button>
+
+          <div style="margin-top:6px; color:var(--muted); font-weight:800; line-height:1.7; font-size:13px">
+            Email: <span style="font-weight:950; color:#1b1f2a;">cyizziee@gmail.com</span><br/>
+            Lokasi: Indonesia 🌏
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © <span id="year"></span> • dibuat oleh Cyizzie
+    </div>
+  </main>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">OK</div>
+
+  <!-- SCRIPT -->
+  <script src="assets/app.js"></script>
+  <script>
+    const form = document.getElementById("contactForm");
+    if (form) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: { "Accept": "application/json" }
+          });
+
+          if (res.ok) {
+            toast("Pesan terkirim ✨ Makasih ya!");
+            form.reset();
+          } else {
+            toast("Gagal kirim 😭 Coba lagi.");
+          }
+        } catch (err) {
+          toast("Koneksi error 😭");
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects • Porto Lucu</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body data-page="projects">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <div class="logo"><span>🎀</span></div>
+        <div>
+          <div style="font-size:14px; opacity:.85;">Cyizzie — Personal Website</div>
+          <div style="font-size:12px; color:var(--muted); font-weight:800;">Welcome to my porto</div>
+        </div>
+      </a>
+      <nav class="links">
+        <a class="chip" data-nav="home" href="index.html">Home</a>
+        <a class="chip" data-nav="projects" href="projects.html">Projects</a>
+        <a class="chip" data-nav="about" href="about.html">About</a>
+        <a class="chip primary" data-nav="contact" href="contact.html">Contact ✨</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="card">
+      <h1>My Projects ✨</h1>
+      <p class="subtitle">
+       
+      </p>
+    </div>
+
+    <div class="section-title">
+      <h2>Featured</h2>
+      <div class="hint">paling kamu banggakan</div>
+    </div>
+
+    <div class="projects">
+      <article class="proj">
+        <span class="badge">🌙 Discord Bot</span>
+        <h3>HOV Assistant</h3>
+        <p>Welcome, ID card, role sorting, embed, utilitas.</p>
+        <div class="row">
+          <span class="tag">Node.js</span><span class="tag">discord.js</span><span class="tag">better-sqlite3</span>
+          <a class="tag" href="#" onclick="toast('Ganti ke link GitHub / demo!');return false;">Live/Demo</a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <span class="badge">🍰 Web UI</span>
+        <h3>Pastel Landing Page</h3>
+        <p>Landing clean dengan animasi lembut + CTA.</p>
+        <div class="row">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
+          <a class="tag" href="#" onclick="toast('Ganti ke link GitHub / demo!');return false;">Live/Demo</a>
+        </div>
+      </article>
+
+      <article class="proj">
+        <span class="badge">🛒 Discord Bot</span>
+        <h3>Cyizzie Bot</h3>
+        <p>
+          Bot Discord berbasis Node.js untuk otomatisasi pesanan dan interaksi pelanggan.
+        </p>
+        <div class="row">
+          <span class="tag">Node.js</span>
+          <span class="tag">discord.js</span>
+          <span class="tag">Automation</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="section-title">
+      <h2>More</h2>
+      <div class="hint"></div>
+    </div>
+
+    <div class="projects">
+      <article class="proj">
+        <span class="badge">🎀 Design</span>
+        <h3>Cute Branding Pack</h3>
+        <p>Logo, header, palette pastel buat komunitas.</p>
+        <div class="row">
+          <span class="tag">Figma</span><span class="tag">Brand</span>
+          <a class="tag" href="#" onclick="toast('Ganti ke link portfolio/dribbble!');return false;">Preview</a>
+        </div>
+      </article>
+      <article class="proj">
+        <span class="badge">🧁 Mini Tool</span>
+        <h3>Random Cute Quote</h3>
+        <p>Generator quote lucu + tombol copy.</p>
+        <div class="row"><span class="tag">Vanilla JS</span></div>
+      </article>
+      <article class="proj">
+        <span class="badge">🫧 UI</span>
+        <h3>Card Components</h3>
+        <p>Kumpulan komponen card pastel reusable.</p>
+        <div class="row"><span class="tag">CSS</span></div>
+      </article>
+      <article class="proj">
+        <span class="badge">🌸 Bot</span>
+        <h3>Welcome Embed Kit</h3>
+        <p>Template embed + tombol untuk server Discord.</p>
+        <div class="row"><span class="tag">discord.js</span></div>
+      </article>
+    </div>
+
+    <div class="footer">© <span id="year"></span> • dibuat oleh Cyizzie</div>
+  </main>
+
+  <div class="toast" id="toast">OK</div>
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home • Porto Lucu</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body data-page="home">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <div class="logo"><span>🎀</span></div>
+        <div>
+          <div style="font-size:14px; opacity:.85;">Cyizzie — Personal Website</div>
+          <div style="font-size:12px; color:var(--muted); font-weight:800;">Welcome to my porto</div>
+        </div>
+      </a>
+      <nav class="links">
+        <a class="chip" data-nav="home" href="index.html">Home</a>
+        <a class="chip" data-nav="projects" href="projects.html">Projects</a>
+        <a class="chip" data-nav="about" href="about.html">About</a>
+        <a class="chip primary" data-nav="contact" href="contact.html">Contact ✨</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="hero">
+      <div class="card">
+        <h1>
+          Halo, aku
+          <span style="background:linear-gradient(135deg,var(--blue),var(--pink)); -webkit-background-clip:text; background-clip:text; color:transparent;">Cyizzie</span>
+          🌸<br/>
+          bikin hal-hal imut tapi rapi.
+        </h1>
+        <p class="subtitle">
+          Selamat datang di portoku! Tema pastel biru–pink, clean, dan lucu.
+          Klik Projects buat lihat karya-karyaku.
+        </p>
+
+        <div class="pill-row">
+          <div class="pill"><b>💻</b> Web / Bot</div>
+          <div class="pill"><b>🎨</b> Design</div>
+          <div class="pill"><b>✨</b> UI Cute</div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; align-items:center;">
+          <a class="btn primary" href="projects.html">Lihat Projects ➜</a>
+          <button class="btn ghost" id="copyEmail" data-email="morgan@email.com" type="button">Copy Email 📩</button>
+          <a class="btn ghost" href="contact.html">Ngobrol Yuk ☁️</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="avatar">
+          <div class="pfp" aria-hidden="true"></div>
+          <div class="who">
+            <h3>Quick Bio 🌷</h3>
+            <p>Mahasiswa / developer yang suka bikin UI pastel, Discord bot, dan website yang “gemes tapi niat”.</p>
+          </div>
+        </div>
+
+        <div class="section-title" style="margin-top:18px">
+          <h2 style="font-size:16px; margin:0;">Highlight</h2>
+          <div class="hint">mini stats</div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div style="padding:14px; border-radius:var(--radius2); background:rgba(255,255,255,.65); border:1px solid rgba(255,255,255,.9);">
+            <div style="font-weight:950; font-size:20px;">12+</div>
+            <div style="margin-top:6px; color:var(--muted); font-weight:800; font-size:13px;">Mini Projects</div>
+          </div>
+          <div style="padding:14px; border-radius:var(--radius2); background:rgba(255,255,255,.65); border:1px solid rgba(255,255,255,.9);">
+            <div style="font-weight:950; font-size:20px;">3+</div>
+            <div style="margin-top:6px; color:var(--muted); font-weight:800; font-size:13px;">Active Builds</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px; color:var(--muted); font-weight:750; line-height:1.7;">
+          Lagi fokus: portofolio + front-end + bot discord. Target: 1 project publish tiap minggu 🍬
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">
+      <h2>Preview Projects</h2>
+      <div class="hint">cuplikan</div>
+    </div>
+
+    <div class="projects">
+      <article class="proj">
+        <span class="badge">🌙 Discord Bot</span>
+        <h3>HOV Assistant</h3>
+        <p>Bot komunitas: welcome, ID card, role sorting, utilitas.</p>
+        <div class="row"><span class="tag">Node.js</span><span class="tag">discord.js</span><span class="tag">SQLite</span></div>
+      </article>
+
+      <article class="proj">
+        <span class="badge">🍰 Web UI</span>
+        <h3>Pastel Landing Page</h3>
+        <p>Landing page pastel dengan layout clean + animasi lembut.</p>
+        <div class="row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive</span></div>
+      </article>
+
+      <article class="proj">
+        <span class="badge">🎀 Design</span>
+        <h3>Cute Branding Pack</h3>
+        <p>Set logo + header + palette buat komunitas / project.</p>
+        <div class="row"><span class="tag">Figma</span><span class="tag">Brand</span><span class="tag">Pastel</span></div>
+      </article>
+    </div>
+
+    <div class="footer">© <span id="year"></span> • dibuat oleh Cyizzie</div>
+  </main>
+
+  <div class="toast" id="toast">Copied!</div>
+  <script src="assets/app.js"></script>
+</body>
+</html>
