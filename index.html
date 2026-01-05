@@ -3,49 +3,51 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Home • Porto Lucu</title>
+  <title>Home • Cyizzie</title>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body data-page="home">
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
 
   <header>
     <div class="nav">
-      <a class="brand" href="index.html">
+      <a class="brand" href="index.html" aria-label="Home">
         <div class="logo"><span>🎀</span></div>
         <div>
           <div style="font-size:14px; opacity:.85;">Cyizzie — Personal Website</div>
           <div style="font-size:12px; color:var(--muted); font-weight:800;">Welcome to my porto</div>
         </div>
       </a>
-      <nav class="links">
+
+      <nav class="links" aria-label="Navigation">
         <a class="chip" data-nav="home" href="index.html">Home</a>
         <a class="chip" data-nav="projects" href="projects.html">Projects</a>
         <a class="chip" data-nav="about" href="about.html">About</a>
         <a class="chip primary" data-nav="contact" href="contact.html">Contact ✨</a>
+
+        <!-- Dark mode toggle -->
+        <button class="chip chip-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+          🌙
+        </button>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
     <div class="hero">
-      <div class="card">
+      <!-- HERO LEFT -->
+      <div class="card fade-up">
         <h1>
-            Halo, aku
-            <span style="background:linear-gradient(135deg,var(--blue),var(--pink));
-            -webkit-background-clip:text; background-clip:text; color:transparent;">
-                Cyizzie
-            </span>
-            🌸<br/>
-            </h1>
-            <p class="subtitle">
-            Portofolio ini menampilkan eksplorasi web, antarmuka pengguna,
-            serta proyek digital yang dikembangkan dengan pendekatan
-            sederhana, konsisten, dan bernuansa pastel yang lembut.
-            </p>
+          Halo, aku
+          <span class="grad-text">Cyizzie</span> 🌸
+        </h1>
 
+        <p class="subtitle">
+          Portofolio ini menampilkan eksplorasi web, antarmuka pengguna, serta proyek digital yang dikembangkan dengan pendekatan sederhana, konsisten, dan bernuansa pastel yang lembut.
+        </p>
 
-        <div class="pill-row">
+        <div class="pill-row" aria-label="Focus areas">
           <div class="pill"><b>💻</b> Web / Bot</div>
           <div class="pill"><b>🎨</b> Design</div>
           <div class="pill"><b>✨</b> UI Cute</div>
@@ -58,7 +60,8 @@
         </div>
       </div>
 
-      <div class="card">
+      <!-- HERO RIGHT -->
+      <div class="card fade-up" style="animation-delay:.06s">
         <div class="avatar">
           <div class="pfp" aria-hidden="true"></div>
           <div class="who">
@@ -72,49 +75,71 @@
           <div class="hint">mini stats</div>
         </div>
 
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
-          <div style="padding:14px; border-radius:var(--radius2); background:rgba(255,255,255,.65); border:1px solid rgba(255,255,255,.9);">
-            <div style="font-weight:950; font-size:20px;">12+</div>
-            <div style="margin-top:6px; color:var(--muted); font-weight:800; font-size:13px;">Mini Projects</div>
+        <div class="stats">
+          <div class="stat">
+            <div class="num">12+</div>
+            <div class="label">Mini Projects</div>
           </div>
-          <div style="padding:14px; border-radius:var(--radius2); background:rgba(255,255,255,.65); border:1px solid rgba(255,255,255,.9);">
-            <div style="font-weight:950; font-size:20px;">3+</div>
-            <div style="margin-top:6px; color:var(--muted); font-weight:800; font-size:13px;">Active Builds</div>
+          <div class="stat">
+            <div class="num">3+</div>
+            <div class="label">Active Builds</div>
           </div>
         </div>
 
-        <div style="margin-top:14px; color:var(--muted); font-weight:750; line-height:1.7;">
+        <div class="muted-note">
           Lagi fokus: portofolio + front-end + bot discord. Target: 1 project publish tiap minggu 🍬
         </div>
       </div>
     </div>
 
-    <div class="section-title">
+    <div class="section-title fade-up" style="animation-delay:.12s">
       <h2>Preview Projects</h2>
       <div class="hint">cuplikan</div>
     </div>
 
-    <div class="projects">
+    <div class="projects fade-up" style="animation-delay:.16s">
       <article class="proj">
         <span class="badge">🌙 Discord Bot</span>
         <h3>HOV Assistant</h3>
         <p>Bot komunitas: welcome, ID card, role sorting, utilitas.</p>
-        <div class="row"><span class="tag">Node.js</span><span class="tag">discord.js</span><span class="tag">SQLite</span></div>
+        <div class="row">
+          <span class="tag">Node.js</span><span class="tag">discord.js</span><span class="tag">SQLite</span>
+        </div>
       </article>
 
       <article class="proj">
         <span class="badge">🍰 Web UI</span>
         <h3>Pastel Landing Page</h3>
         <p>Landing page pastel dengan layout clean + animasi lembut.</p>
-        <div class="row"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive</span></div>
+        <div class="row">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive</span>
+        </div>
       </article>
 
       <article class="proj">
         <span class="badge">🎀 Design</span>
         <h3>Cute Branding Pack</h3>
         <p>Set logo + header + palette buat komunitas / project.</p>
-        <div class="row"><span class="tag">Figma</span><span class="tag">Brand</span><span class="tag">Pastel</span></div>
+        <div class="row">
+          <span class="tag">Figma</span><span class="tag">Brand</span><span class="tag">Pastel</span>
+        </div>
       </article>
+    </div>
+
+    <!-- TECH STACK (pakai card, bukan proj) -->
+    <div class="card fade-up" style="margin-top:14px; animation-delay:.20s">
+      <div class="section-title" style="margin:0 2px 10px">
+        <h2 style="margin:0;">Tech Stack</h2>
+        <div class="hint">tools yang sering dipakai</div>
+      </div>
+
+      <div class="pill-row">
+        <div class="pill"><b>⚡</b> HTML</div>
+        <div class="pill"><b>🎨</b> CSS</div>
+        <div class="pill"><b>🧠</b> JavaScript</div>
+        <div class="pill"><b>🤖</b> discord.js</div>
+        <div class="pill"><b>🗄</b> SQLite</div>
+      </div>
     </div>
 
     <div class="footer">© <span id="year"></span> • dibuat oleh Cyizzie</div>

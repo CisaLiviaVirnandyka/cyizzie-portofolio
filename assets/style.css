@@ -87,6 +87,14 @@ header{
   display:flex; align-items:center; gap:10px; padding-left:6px;
   font-weight:800;
 }
+.fade-up{
+  animation: fadeUp .6s ease both;
+}
+@keyframes fadeUp{
+  from{ opacity:0; transform: translateY(14px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
 .logo{
   width:38px; height:38px; border-radius:14px;
   background: linear-gradient(135deg, var(--blue), var(--pink));
@@ -142,7 +150,7 @@ h1{margin:0; font-size: clamp(30px, 4vw, 46px); line-height: 1.05; letter-spacin
 
 /* About bio styling */
 .bio{
-  max-width: 68ch;           /* biar tidak terlalu lebar */
+  max-width: 100%;           /* biar tidak terlalu lebar */
   line-height: 1.85;
   font-size: 15.5px;
   color: var(--muted);
@@ -351,58 +359,55 @@ textarea.input{min-height:120px; resize:vertical}
 }
 
 /* =========================
-   MOBILE FIXES (Paste bottom)
+   MOBILE + NAV CENTER FIX (REPLACE YOUR MOBILE SECTION)
    ========================= */
 
 html { -webkit-text-size-adjust: 100%; }
-.wrap { padding: 18px; }
 
-/* Header / Navbar */
+/* wrapper lebih enak di HP */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 24px; }
+@media (max-width: 720px){
+  .wrap{ padding: 18px; }
+}
+
+/* ✅ HEADER selalu center (ini yang beresin kotak navbar) */
 header{
-  margin: 12px 12px;
-  border-radius: 18px;
+  max-width: var(--max);
+  width: min(var(--max), calc(100% - 32px));
+  margin: 18px auto;                 /* auto = center */
+  border-radius: 999px;
 }
-.nav{
-  padding: 10px 12px;
-  gap: 10px;
-}
-.brand{
-  gap: 10px;
-  padding-left: 2px;
-}
-.links{
-  justify-content: flex-end;
-  gap: 6px;
-}
-
-/* tombol navbar biar tidak kepanjangan */
-.chip{
-  padding: 9px 11px;
-  font-size: 13px;
-}
-
-/* Hero + cards */
 @media (max-width: 900px){
-  .hero{
-    grid-template-columns: 1fr;
-    gap: 14px;
+  header{
+    width: calc(100% - 24px);
+    margin: 12px auto;               /* auto = center */
+    border-radius: 20px;
   }
 }
 
+/* nav spacing */
+.nav{ padding: 12px 16px; gap:12px; }
+@media (max-width: 900px){
+  .nav{ padding: 10px 12px; gap:10px; }
+  .brand{ padding-left: 2px; gap:10px; }
+  .chip{ padding: 9px 11px; font-size: 13px; }
+}
+
+/* ✅ Mobile: navbar jadi 2 baris dan center */
 @media (max-width: 520px){
-  /* Navbar jadi 2 baris */
   .nav{
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
   .brand{
     justify-content: center;
+    width: 100%;
   }
   .links{
     justify-content: center;
+    width: 100%;
   }
 
-  /* Heading & spacing */
   h1{
     font-size: clamp(26px, 7vw, 36px);
     line-height: 1.1;
@@ -412,23 +417,16 @@ header{
     max-width: 100%;
   }
 
-  /* Pills */
-  .pill-row{
-    gap: 8px;
-  }
-  .pill{
-    padding: 9px 10px;
-    font-size: 12.5px;
-  }
+  .pill-row{ gap: 8px; }
+  .pill{ padding: 9px 10px; font-size: 12.5px; }
 
-  /* Buttons jadi full width biar gampang dipencet */
+  /* Button nyaman dipencet di HP */
   .btn{
     width: 100%;
     justify-content: center;
   }
-  /* tapi kalau mau tetap 2 tombol sejajar, comment 2 baris di atas */
 
-  /* Projects grid jadi 1 kolom */
+  /* Projects jadi 1 kolom */
   .projects{
     grid-template-columns: 1fr !important;
     gap: 12px;
@@ -440,22 +438,22 @@ header{
     border-radius: 20px;
   }
 
-  /* Quick Bio align lebih enak */
-  .avatar{
-    align-items: flex-start;
-  }
+  /* avatar rapih */
+  .avatar{ align-items: flex-start; }
   .pfp{
     width: 58px;
     height: 58px;
     border-radius: 20px;
   }
 
-  /* Highlight stats jadi 1 kolom */
+  /* highlight stats 1 kolom */
   .card div[style*="grid-template-columns:1fr 1fr"]{
     grid-template-columns: 1fr !important;
   }
+}
 
-  .cta-row{
+/* ✅ CTA row (jangan taruh di dalam media query) */
+.cta-row{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
@@ -463,37 +461,132 @@ header{
   align-items:center;
 }
 @media (max-width:520px){
-  .cta-row{ flex-direction: column; align-items: stretch; }
+  .cta-row{
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
-}
-/* CONTACT page mobile fix */
+
+/* =========================
+   CONTACT PAGE MOBILE FIX
+   ========================= */
 @media (max-width: 720px){
-  body[data-page="contact"] .card a.btn.ghost,
-  body[data-page="contact"] .card button.btn.ghost{
-    padding: 12px 14px;
+  /* karena kamu pakai inline style grid-template-columns,
+     harus pakai !important biar ketimpa */
+  body[data-page="contact"] .grid{
+    grid-template-columns: 1fr !important;
   }
 
-  /* bikin tombol link lebih rapat */
+  /* iPhone anti auto-zoom */
+  body[data-page="contact"] .input{
+    font-size: 16px;
+  }
+
+  /* tombol full width */
+  body[data-page="contact"] .btn{
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* rapetin gap list link */
   body[data-page="contact"] .card div[style*="display:grid"][style*="gap:10px"]{
     gap: 8px !important;
   }
 }
 
-@media (max-width: 720px){
-  body[data-page="contact"] .grid{
-    grid-template-columns: 1fr !important;
-  }
+/* ===== Nice text gradient for name ===== */
+.grad-text{
+  background:linear-gradient(135deg,var(--blue),var(--pink));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
 
-  body[data-page="contact"] .card{
-    padding: 16px;
-  }
+/* ===== Fade-up animation ===== */
+.fade-up{
+  animation: fadeUp .6s ease both;
+}
+@keyframes fadeUp{
+  from{ opacity:0; transform: translateY(14px); }
+  to{ opacity:1; transform: translateY(0); }
+}
 
-  body[data-page="contact"] .input{
-    font-size: 16px; /* biar iPhone ga auto-zoom */
-  }
+/* ===== Stats styling (replace inline styles) ===== */
+.stats{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+}
+.stat{
+  padding:14px;
+  border-radius: var(--radius2);
+  background: rgba(255,255,255,.65);
+  border:1px solid rgba(255,255,255,.9);
+}
+.stat .num{ font-weight:950; font-size:20px; }
+.stat .label{ margin-top:6px; color:var(--muted); font-weight:800; font-size:13px; }
+.muted-note{ margin-top:14px; color:var(--muted); font-weight:750; line-height:1.7; }
 
-  body[data-page="contact"] .btn{
-    width: 100%;
-    justify-content: center;
-  }
+/* ===== Toggle chip ===== */
+.chip-toggle{
+  cursor:pointer;
+  user-select:none;
+}
+
+/* ===== Dark mode (toggle via data-theme="dark") ===== */
+body[data-theme="dark"]{
+  --bg1:#0b1020;
+  --bg2:#0c1326;
+  --card: rgba(15, 22, 44, .62);
+  --text:#eaf0ff;
+  --muted:#b9c2da;
+
+  --blue:#7cc8ff;
+  --blue2: rgba(124,200,255,.35);
+  --pink:#ff9bd6;
+  --pink2: rgba(255,155,214,.32);
+
+  --shadow: 0 18px 40px rgba(0, 0, 0, .35);
+}
+
+body[data-theme="dark"] header{
+  background: linear-gradient(135deg, rgba(20,28,55,.70), rgba(14,18,40,.45));
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+body[data-theme="dark"] .chip{
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  color: var(--muted);
+}
+body[data-theme="dark"] .chip.primary{
+  background: linear-gradient(135deg, rgba(124,200,255,.22), rgba(255,155,214,.18));
+  color: var(--text);
+}
+body[data-theme="dark"] .chip.active{
+  outline: 2px solid rgba(124,200,255,.25);
+  color: var(--text);
+}
+
+body[data-theme="dark"] .card{
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+body[data-theme="dark"] .proj,
+body[data-theme="dark"] .pill,
+body[data-theme="dark"] .tag,
+body[data-theme="dark"] .bar,
+body[data-theme="dark"] .input,
+body[data-theme="dark"] .stat{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+body[data-theme="dark"] .meter{
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+@media (max-width:520px){
+  .stats{ grid-template-columns: 1fr; }
 }
