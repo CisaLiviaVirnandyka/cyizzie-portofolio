@@ -532,46 +532,52 @@ header{
   cursor:pointer;
   user-select:none;
 }
+/* =========================
+   DARK MODE TUNING (PASTE BOTTOM)
+   ========================= */
 
-/* ===== Dark mode (toggle via data-theme="dark") ===== */
 body[data-theme="dark"]{
-  --bg1:#0b1020;
-  --bg2:#0c1326;
-  --card: rgba(15, 22, 44, .62);
-  --text:#eaf0ff;
-  --muted:#b9c2da;
+  /* lebih “night pastel” */
+  --bg1:#060915;
+  --bg2:#070b1a;
+  --card: rgba(14, 18, 38, .68);
+  --text:#eef3ff;
+  --muted:#c4cbe3;
 
-  --blue:#7cc8ff;
-  --blue2: rgba(124,200,255,.35);
+  --blue:#7fcaff;
+  --blue2: rgba(127,202,255,.28);
   --pink:#ff9bd6;
-  --pink2: rgba(255,155,214,.32);
+  --pink2: rgba(255,155,214,.24);
 
-  --shadow: 0 18px 40px rgba(0, 0, 0, .35);
+  --shadow: 0 20px 50px rgba(0,0,0,.45);
 }
 
+/* background glow tetap halus, jangan “putih” */
+body[data-theme="dark"]::before{
+  background:
+    radial-gradient(1200px 600px at 20% 10%, rgba(127,202,255,.18) 0%, transparent 60%),
+    radial-gradient(1000px 600px at 80% 15%, rgba(255,155,214,.16) 0%, transparent 62%),
+    radial-gradient(900px 700px at 45% 90%, rgba(170,220,255,.10) 0%, transparent 60%),
+    linear-gradient(135deg, var(--bg1), var(--bg2));
+}
+
+/* header & chips lebih gelap */
 body[data-theme="dark"] header{
-  background: linear-gradient(135deg, rgba(20,28,55,.70), rgba(14,18,40,.45));
+  background: linear-gradient(135deg, rgba(12,16,34,.78), rgba(10,12,26,.55));
   border: 1px solid rgba(255,255,255,.10);
 }
-
 body[data-theme="dark"] .chip{
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
   color: var(--muted);
 }
 body[data-theme="dark"] .chip.primary{
-  background: linear-gradient(135deg, rgba(124,200,255,.22), rgba(255,155,214,.18));
-  color: var(--text);
-}
-body[data-theme="dark"] .chip.active{
-  outline: 2px solid rgba(124,200,255,.25);
+  background: linear-gradient(135deg, rgba(127,202,255,.18), rgba(255,155,214,.14));
   color: var(--text);
 }
 
-body[data-theme="dark"] .card{
-  border: 1px solid rgba(255,255,255,.10);
-}
-
+/* card / blocks */
+body[data-theme="dark"] .card,
 body[data-theme="dark"] .proj,
 body[data-theme="dark"] .pill,
 body[data-theme="dark"] .tag,
@@ -582,13 +588,33 @@ body[data-theme="dark"] .stat{
   border: 1px solid rgba(255,255,255,.10);
 }
 
+/* ✅ FIX FONT yang masih gelap (karena hardcode) */
+body[data-theme="dark"] .pill,
+body[data-theme="dark"] .tag,
+body[data-theme="dark"] .proj h3,
+body[data-theme="dark"] .bar .name,
+body[data-theme="dark"] .who h3,
+body[data-theme="dark"] .logo span{
+  color: var(--text) !important;
+}
+body[data-theme="dark"] .proj p,
+body[data-theme="dark"] .who p,
+body[data-theme="dark"] .hint,
+body[data-theme="dark"] .subtitle,
+body[data-theme="dark"] .footer{
+  color: var(--muted) !important;
+}
+
+/* meter biar lebih soft */
 body[data-theme="dark"] .meter{
   background: rgba(255,255,255,.10);
   border: 1px solid rgba(255,255,255,.10);
 }
 
-@media (max-width:520px){
-  .stats{ grid-template-columns: 1fr; }
+/* blob jangan terlalu “putih” */
+body[data-theme="dark"] .blob{
+  opacity: .40;
+  mix-blend-mode: screen;
 }
 
 /* Toggle chip biar ukurannya stabil */
