@@ -12,7 +12,7 @@ Personal portfolio website (multi-page) dengan tema pastel biru–pink.
 - HTML / CSS / JavaScript
 
 ## Live
-- GitHub Pages: (isi link kamu di sini)
+- GitHub Pages
 
 ## Contact
 - Email: cyizziee@gmail.com
