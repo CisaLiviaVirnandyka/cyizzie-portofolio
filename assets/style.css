@@ -140,6 +140,31 @@ h1{margin:0; font-size: clamp(30px, 4vw, 46px); line-height: 1.05; letter-spacin
 .section-title h2{margin:0; font-size: 20px; letter-spacing: -0.2px;}
 .hint{color:var(--muted); font-weight:700; font-size: 13px;}
 
+/* About bio styling */
+.bio{
+  max-width: 68ch;           /* biar tidak terlalu lebar */
+  line-height: 1.85;
+  font-size: 15.5px;
+  color: var(--muted);
+}
+
+.bio p{
+  margin: 0 0 12px;
+}
+
+.bio b{
+  color: var(--text);
+  font-weight: 900;
+}
+
+.bio-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top: 14px;
+}
+
+
 .btn{
   border:0; cursor:pointer;
   padding: 12px 14px;
@@ -323,4 +348,122 @@ textarea.input{min-height:120px; resize:vertical}
 .toast.show{
   opacity:1;
   transform: translateX(-50%) translateY(-4px);
+}
+
+/* =========================
+   MOBILE FIXES (Paste bottom)
+   ========================= */
+
+html { -webkit-text-size-adjust: 100%; }
+.wrap { padding: 18px; }
+
+/* Header / Navbar */
+header{
+  margin: 12px 12px;
+  border-radius: 18px;
+}
+.nav{
+  padding: 10px 12px;
+  gap: 10px;
+}
+.brand{
+  gap: 10px;
+  padding-left: 2px;
+}
+.links{
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+/* tombol navbar biar tidak kepanjangan */
+.chip{
+  padding: 9px 11px;
+  font-size: 13px;
+}
+
+/* Hero + cards */
+@media (max-width: 900px){
+  .hero{
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+@media (max-width: 520px){
+  /* Navbar jadi 2 baris */
+  .nav{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .brand{
+    justify-content: center;
+  }
+  .links{
+    justify-content: center;
+  }
+
+  /* Heading & spacing */
+  h1{
+    font-size: clamp(26px, 7vw, 36px);
+    line-height: 1.1;
+  }
+  .subtitle{
+    font-size: 14.5px;
+    max-width: 100%;
+  }
+
+  /* Pills */
+  .pill-row{
+    gap: 8px;
+  }
+  .pill{
+    padding: 9px 10px;
+    font-size: 12.5px;
+  }
+
+  /* Buttons jadi full width biar gampang dipencet */
+  .btn{
+    width: 100%;
+    justify-content: center;
+  }
+  /* tapi kalau mau tetap 2 tombol sejajar, comment 2 baris di atas */
+
+  /* Projects grid jadi 1 kolom */
+  .projects{
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+
+  /* Card padding lebih kecil */
+  .card{
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  /* Quick Bio align lebih enak */
+  .avatar{
+    align-items: flex-start;
+  }
+  .pfp{
+    width: 58px;
+    height: 58px;
+    border-radius: 20px;
+  }
+
+  /* Highlight stats jadi 1 kolom */
+  .card div[style*="grid-template-columns:1fr 1fr"]{
+    grid-template-columns: 1fr !important;
+  }
+
+  .cta-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:18px;
+  align-items:center;
+}
+@media (max-width:520px){
+  .cta-row{ flex-direction: column; align-items: stretch; }
+}
+
 }
