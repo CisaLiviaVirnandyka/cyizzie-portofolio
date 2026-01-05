@@ -465,5 +465,23 @@ header{
 @media (max-width:520px){
   .cta-row{ flex-direction: column; align-items: stretch; }
 }
+}
+/* CONTACT page mobile fix */
+@media (max-width: 720px){
+  body[data-page="contact"] .grid{
+    grid-template-columns: 1fr !important;
+  }
 
+  body[data-page="contact"] .card{
+    padding: 16px;
+  }
+
+  body[data-page="contact"] .input{
+    font-size: 16px; /* biar iPhone ga auto-zoom */
+  }
+
+  body[data-page="contact"] .btn{
+    width: 100%;
+    justify-content: center;
+  }
 }
