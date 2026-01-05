@@ -468,6 +468,18 @@ header{
 }
 /* CONTACT page mobile fix */
 @media (max-width: 720px){
+  body[data-page="contact"] .card a.btn.ghost,
+  body[data-page="contact"] .card button.btn.ghost{
+    padding: 12px 14px;
+  }
+
+  /* bikin tombol link lebih rapat */
+  body[data-page="contact"] .card div[style*="display:grid"][style*="gap:10px"]{
+    gap: 8px !important;
+  }
+}
+
+@media (max-width: 720px){
   body[data-page="contact"] .grid{
     grid-template-columns: 1fr !important;
   }
