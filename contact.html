@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact • Porto Lucu</title>
+  <title>Contact • Cyizzie</title>
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body data-page="contact">
@@ -19,19 +19,35 @@
         <div class="logo"><span>🎀</span></div>
         <div>
           <div style="font-size:14px; opacity:.85;">Cyizzie — Personal Website</div>
-          <div style="font-size:12px; color:var(--muted); font-weight:800;">Welcome to my porto</div>
+          <div style="font-size:12px; color:var(--muted); font-weight:800;">Welcome to my Portofolio</div>
         </div>
       </a>
-      <nav class="links">
-        <a class="chip" data-nav="home" href="index.html">Home</a>
-        <a class="chip" data-nav="projects" href="projects.html">Projects</a>
-        <a class="chip" data-nav="about" href="about.html">About</a>
-        <a class="chip primary" data-nav="contact" href="contact.html">Contact ✨</a>
-        <!-- Dark mode toggle -->
-        <button class="chip chip-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
-          🌙
-        </button>
-      </nav>
+     <nav class="links" aria-label="Navigation">
+  <a class="chip" data-nav="home" href="index.html">Home</a>
+  <a class="chip" data-nav="projects" href="projects.html">Projects</a>
+  <a class="chip" data-nav="about" href="about.html">About</a>
+  <a class="chip primary" data-nav="contact" href="contact.html">Contact ✨</a>
+
+  <button class="chip chip-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">🌙</button>
+</nav>
+
+<!-- MOBILE ACTIONS -->
+<div class="m-actions" aria-label="Mobile actions">
+  <button class="m-btn" id="mTheme" type="button" aria-label="Toggle dark mode">🌙</button>
+  <button class="m-btn" id="mMenu" type="button" aria-label="Open menu">☰</button>
+</div>
+
+<!-- MOBILE DRAWER -->
+<div class="m-drawer" id="mDrawer" aria-hidden="true">
+  <div class="m-backdrop" data-close="m-drawer"></div>
+  <div class="m-panel" role="dialog" aria-modal="true" aria-label="Mobile menu">
+    <a class="m-link" href="index.html" data-nav="home">Home</a>
+    <a class="m-link" href="projects.html" data-nav="projects">Projects</a>
+    <a class="m-link" href="about.html" data-nav="about">About</a>
+    <a class="m-link primary" href="contact.html" data-nav="contact">Contact ✨</a>
+  </div>
+</div>
+
     </div>
   </header>
 
@@ -72,7 +88,7 @@
 
         <div style="display:grid; gap:10px; margin-top:12px">
           <a class="btn ghost"
-             href="https://github.com/CisaLiviaVirnandyka"
+             href="https://github.com/cyizzievielle"
              target="_blank" rel="noopener">
             GitHub 🐙
           </a>

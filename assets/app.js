@@ -1,5 +1,5 @@
 // =====================
-// Cyizzie Porto - app.js
+// Cyizzie Portofolio - app.js (fixed)
 // =====================
 
 // set year
@@ -74,3 +74,130 @@ if (toggle) {
     syncToggleIcon();
   });
 }
+
+// ===== IMAGE MODAL (GLOBAL - fixed) =====
+(() => {
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("imgModalSrc");
+  const modalCap = document.getElementById("imgModalCap");
+
+  // modal only exists in projects.html (safe to skip in other pages)
+  if (!modal || !modalImg || !modalCap) return;
+
+  function openModal(src, caption, alt) {
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    modalImg.src = src;
+    modalImg.alt = alt || "Preview";
+    modalCap.textContent = caption || "";
+  }
+
+  function closeModal() {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    modalImg.src = "";
+    modalImg.alt = "";
+    modalCap.textContent = "";
+  }
+
+  // open from any <a data-modal="image">
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest('a[data-modal="image"]');
+    if (!a) return;
+
+    e.preventDefault();
+
+    const img = a.querySelector("img");
+    const src = a.getAttribute("href");
+
+    // caption: support both new (.media-title) and old (span)
+    const caption =
+      a.querySelector(".media-title")?.textContent?.trim() ||
+      a.querySelector("span")?.textContent?.trim() ||
+      "";
+
+    const alt = img?.getAttribute("alt") || "";
+
+    openModal(src, caption, alt);
+  });
+
+  // close on backdrop or close button
+  modal.addEventListener("click", (e) => {
+    if (e.target.matches('[data-close="modal"]')) closeModal();
+  });
+
+  // ESC to close
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+  });
+})();
+// ===== MOBILE NAV =====
+(() => {
+  const drawer = document.getElementById("mDrawer");
+  const btnMenu = document.getElementById("mMenu");
+  const btnThemeMobile = document.getElementById("mTheme");
+
+  if (!drawer) return;
+
+  function openDrawer(){
+    drawer.classList.add("open");
+    drawer.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeDrawer(){
+    drawer.classList.remove("open");
+    drawer.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  if (btnMenu) {
+    btnMenu.addEventListener("click", () => {
+      drawer.classList.contains("open") ? closeDrawer() : openDrawer();
+    });
+  }
+
+  // close on backdrop
+  drawer.addEventListener("click", (e) => {
+    if (e.target.matches('[data-close="m-drawer"]')) closeDrawer();
+  });
+
+  // close on ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && drawer.classList.contains("open")) closeDrawer();
+  });
+
+  // close after click a link
+  drawer.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", () => closeDrawer());
+  });
+
+  // mobile theme toggle uses same logic as desktop
+  if (btnThemeMobile) {
+    btnThemeMobile.addEventListener("click", () => {
+      const isDark = document.body.getAttribute("data-theme") === "dark";
+      if (isDark) {
+        document.body.removeAttribute("data-theme");
+        localStorage.setItem("theme", "");
+        toast("Light mode ☀️");
+      } else {
+        document.body.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+        toast("Dark mode on 🌙");
+      }
+
+      // sync icons
+      const nowDark = document.body.getAttribute("data-theme") === "dark";
+      btnThemeMobile.textContent = nowDark ? "☀️" : "🌙";
+      const t = document.getElementById("themeToggle");
+      if (t) t.textContent = nowDark ? "☀️" : "🌙";
+    });
+  }
+
+  // initial icon sync
+  const isDark = document.body.getAttribute("data-theme") === "dark";
+  if (btnThemeMobile) btnThemeMobile.textContent = isDark ? "☀️" : "🌙";
+})();
