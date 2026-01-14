@@ -16,7 +16,7 @@ Personal portfolio website (multi-page) dengan tema pastel biru–pink.
 
 ## Contact
 - Email: cyizziee@gmail.com
-- GitHub: https://github.com/CisaLiviaVirnandyka
+- GitHub: https://github.com/cyizzievielle
 - Instagram: https://www.instagram.com/cisalvrk/
 - LinkedIn: https://www.linkedin.com/in/cisa-livia-virnandyka-23a530288/
 
